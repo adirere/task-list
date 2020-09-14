@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactSortable } from "react-sortablejs";
 import { Card, Grid, Typography } from "@material-ui/core";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 const TaskList = ({
   state1,
@@ -46,8 +47,27 @@ const TaskList = ({
               key={item.id}
               style={{ padding: "10px", margin: "10px 20px" }}
               draggable="true"
+              className="cardContainer"
             >
-              {item.name}
+              <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="center"
+              >
+                <Typography variant="subtitle1">{item.name}</Typography>
+                <MoreHorizIcon
+                  className="moreIcon"
+                  style={{
+                    opacity: "0",
+                    borderRadius: "5px",
+                    backgroundColor: "white",
+                    fontSize: "1.3rem",
+                    boxShadow:
+                      "0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 3px 0px rgba(0,0,0,0.12)"
+                  }}
+                />
+              </Grid>
             </Card>
           ))}
         </ReactSortable>
